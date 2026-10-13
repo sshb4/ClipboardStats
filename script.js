@@ -1,7 +1,8 @@
 // Add another object here to add a tracker. The grid adapts automatically.
 const trackers = [
   { name: "Corbin’s Triples", player: "Corbin Carroll", team: "Arizona Diamondbacks", league: "MLB", stat: "TRIPLES", label: "THE EXTRA-BASE OBSESSION", description: "Every Corbin Carroll triple, tracked live. He triples. You get a text.", url: "https://corbinstriples.com", domain: "corbinstriples.com", sport: "baseball" },
-  { name: "Gibbs Touchdowns", player: "Jahmyr Gibbs", team: "Detroit Lions", league: "NFL", stat: "TOUCHDOWNS", label: "THE CHASE FOR THE RECORD", description: "Jahmyr Gibbs’ chase for the single-season TD record. He scores. You get a text.", url: "https://gibbstouchdowns.com", domain: "gibbstouchdowns.com", sport: "football" }
+  { name: "Gibbs Touchdowns", player: "Jahmyr Gibbs", team: "Detroit Lions", league: "NFL", stat: "TOUCHDOWNS", label: "THE CHASE FOR THE RECORD", description: "Jahmyr Gibbs’ chase for the single-season TD record. He scores. You get a text.", url: "https://gibbstouchdowns.com", domain: "gibbstouchdowns.com", sport: "football" },
+  { name: "Wemby Blocks", player: "Victor Wembanyama", team: "San Antonio Spurs", league: "NBA", stat: "BLOCKS", label: "THE SHOT-BLOCKING OBSESSION", description: "Every Victor Wembanyama block, tracked. Follow Wemby’s biggest moments at the rim.", url: "http://wembyblocks.com/", domain: "wembyblocks.com", sport: "basketball" }
 ];
 
 // Set a real contact address when ready; no placeholder email is displayed.
@@ -33,7 +34,7 @@ function renderHero(trackerCount) {
         <div class="board-stat"><span class="board-number">$<span data-count="0">0</span></span><div><span class="board-stat-title">TO FOLLOW</span><span class="board-stat-detail">Free forever. Fans first.</span></div><span class="board-index">03</span></div>
         <div class="board-footer"><span aria-hidden="true">✳</span> BIG MOMENTS. SMALL DETAILS.</div>
       </div>
-      <div class="hero-bottom"><span>INDEPENDENT SPORTS FAN PROJECT</span><span>BASEBALL / FOOTBALL / MORE TO COME</span></div>
+      <div class="hero-bottom"><span>INDEPENDENT SPORTS FAN PROJECT</span><span>BASEBALL / FOOTBALL / BASKETBALL</span></div>
     </section>
   `;
 }
@@ -44,7 +45,7 @@ function renderTrackers() {
       <div class="wrap">
         <div class="section-heading"><div><p class="eyebrow">THE STARTING LINEUP</p><h2 id="trackers-title">Pick your obsession<span class="red">.</span></h2></div><p>Every big play has a number.<br>These are the ones we’re watching.</p></div>
         <div id="tracker-grid" class="tracker-grid"></div>
-        <div class="coming-soon"><span class="coming-icon" aria-hidden="true">+</span><div><strong>The bench is getting deeper.</strong><span>More players. More stats. Basketball is up next.</span></div><span class="coming-label">NEXT UP / COMING SOON</span></div>
+        <div class="coming-soon"><span class="coming-icon" aria-hidden="true">+</span><div><strong>The bench is getting deeper.</strong><span>More players. More stats. More big moments to follow.</span></div><span class="coming-label">NEXT UP / COMING SOON</span></div>
       </div>
     </section>
   `;
@@ -83,6 +84,7 @@ function renderPage() {
 renderPage();
 
 const sportArt = {
+  basketball: '<svg viewBox="0 0 300 180" fill="none" aria-hidden="true"><path d="M40 25h220v130H40Z" stroke="currentColor" stroke-width="1.5"/><path d="M150 25v130" stroke="currentColor"/><circle cx="150" cy="90" r="24" stroke="currentColor"/><path d="M40 60h40v60H40M260 60h-40v60h40M80 60a38 38 0 0 1 0 60M220 60a38 38 0 0 0 0 60" stroke="currentColor"/><path d="M40 35a65 65 0 0 1 0 110M260 35a65 65 0 0 0 0 110" stroke="currentColor"/><circle cx="60" cy="90" r="6" stroke="#f04b4c" stroke-width="3"/><path d="m100 125-27-27m0 12V98h12" stroke="#f04b4c" stroke-width="3"/><circle cx="100" cy="125" r="5" fill="#f04b4c"/></svg>',
   baseball: '<svg viewBox="0 0 300 180" fill="none" aria-hidden="true"><path d="m150 20 90 75-90 75-90-75Z" stroke="currentColor" stroke-width="1.5"/><path d="m150 65 39 33-39 34-39-34Z" stroke="currentColor" stroke-width="1.5"/><path d="M150 132v32M111 98 65 95M189 98l46-3" stroke="currentColor" stroke-dasharray="4 5"/><path d="m144 131 6-5 6 5v7h-12Z" fill="currentColor"/><path d="m150 65 39 33-39 34-39-34" stroke="#f04b4c" stroke-width="3"/><rect x="145" y="60" width="10" height="10" transform="rotate(45 150 65)" fill="#f04b4c"/></svg>',
   football: '<svg viewBox="0 0 300 180" fill="none" aria-hidden="true"><rect x="40" y="25" width="220" height="130" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M65 25v130M100 25v130M135 25v130M170 25v130M205 25v130M235 25v130" stroke="currentColor"/><path d="M65 65h170M65 115h170" stroke="currentColor" stroke-dasharray="3 12"/><path d="M90 125h35l45-45h70" stroke="#f04b4c" stroke-width="3"/><path d="m228 70 12 10-12 10" stroke="#f04b4c" stroke-width="3"/><circle cx="90" cy="125" r="6" fill="#f04b4c"/></svg>'
 };
