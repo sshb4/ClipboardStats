@@ -7,11 +7,80 @@ const trackers = [
 // Set a real contact address when ready; no placeholder email is displayed.
 const contactEmail = "";
 
-// Keep the project counter in sync with the tracker list.
-const trackerCounter = document.getElementById("tracker-count");
-trackerCounter.dataset.count = String(trackers.length);
-trackerCounter.textContent = String(trackers.length);
-document.querySelector(".hero-board").setAttribute("aria-label", `${trackers.length} trackers, one stat per player, zero dollars to follow`);
+function renderHeader() {
+  return `
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="Clipboard Stats home"><img src="assets/clipboardstats-logo.png" width="48" height="48" alt=""><span>CLIPBOARD<span class="brand-second">STATS<span class="brand-dot">.</span></span></span></a>
+    <nav aria-label="Main navigation"><a href="#trackers">The trackers</a><a href="#about">The story</a><a class="support-link" href="https://ko-fi.com/sshb4" target="_blank" rel="noopener noreferrer">Support the project <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  `;
+}
+
+function renderHero(trackerCount) {
+  return `
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="signal" aria-hidden="true"></span> FOR THE FANS. FOR THE NUMBERS.</p>
+        <h1 id="hero-title">ONE PLAYER.<br>ONE STAT.<br><span class="outlined">ALL IN.</span></h1>
+        <p class="tagline">tracking sports’ most interesting statistics</p>
+        <p class="hero-description">Free fan trackers for sports’ most exciting numbers.<br class="desktop-break"> One player. One stat. Zero cost.</p>
+        <a class="button button-red" href="#trackers">Find your tracker <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-board" aria-label="${trackerCount} trackers, one stat per player, zero dollars to follow">
+        <div class="board-heading"><span>THE CLIPBOARD</span><span class="board-label">FAN STATS HQ</span></div>
+        <div class="board-stat"><span id="tracker-count" class="board-number" data-count="${trackerCount}">${trackerCount}</span><div><span class="board-stat-title">TRACKERS</span><span class="board-stat-detail">Big moments worth following.</span></div><span class="board-index">01</span></div>
+        <div class="board-stat"><span class="board-number" data-count="1">1</span><div><span class="board-stat-title">STAT PER PLAYER</span><span class="board-stat-detail">The number you came for.</span></div><span class="board-index">02</span></div>
+        <div class="board-stat"><span class="board-number">$<span data-count="0">0</span></span><div><span class="board-stat-title">TO FOLLOW</span><span class="board-stat-detail">Free forever. Fans first.</span></div><span class="board-index">03</span></div>
+        <div class="board-footer"><span aria-hidden="true">✳</span> BIG MOMENTS. SMALL DETAILS.</div>
+      </div>
+      <div class="hero-bottom"><span>INDEPENDENT SPORTS FAN PROJECT</span><span>BASEBALL / FOOTBALL / MORE TO COME</span></div>
+    </section>
+  `;
+}
+
+function renderTrackers() {
+  return `
+    <section id="trackers" class="trackers-section" aria-labelledby="trackers-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">THE STARTING LINEUP</p><h2 id="trackers-title">Pick your obsession<span class="red">.</span></h2></div><p>Every big play has a number.<br>These are the ones we’re watching.</p></div>
+        <div id="tracker-grid" class="tracker-grid"></div>
+        <div class="coming-soon"><span class="coming-icon" aria-hidden="true">+</span><div><strong>The bench is getting deeper.</strong><span>More players. More stats. Basketball is up next.</span></div><span class="coming-label">NEXT UP / COMING SOON</span></div>
+      </div>
+    </section>
+  `;
+}
+
+function renderAbout() {
+  return `
+    <section id="about" class="about-section wrap" aria-labelledby="about-title">
+      <div><p class="eyebrow">BEHIND THE CLIPBOARD</p><h2 id="about-title">Built for the<br><span class="outlined">“did you see that?”</span><br>kind of fan.</h2></div>
+      <div class="about-copy"><p class="about-lead">Some numbers are too good to get lost in a box score.</p><p>Clipboard Stats is an independent fan project with a simple idea: follow one player and one exciting stat. We turn stats from public APIs into focused trackers, so you can keep up with the moments you care about.</p><p>Free forever and supported by donations. No affiliation with any league, team, or player. Just fans keeping count.</p><a class="text-link" href="https://ko-fi.com/sshb4" target="_blank" rel="noopener noreferrer">Help keep the clipboard going <span aria-hidden="true">↗</span></a></div>
+    </section>
+  `;
+}
+
+function renderFooter() {
+  return `
+  <footer class="site-footer wrap"><div class="footer-top"><a class="brand footer-brand" href="#" aria-label="Clipboard Stats home"><img src="assets/clipboardstats-logo.png" width="38" height="38" alt=""><span>CLIPBOARD STATS<span class="brand-dot">.</span></span></a><div class="footer-links" id="footer-links"><a href="https://ko-fi.com/sshb4" target="_blank" rel="noopener noreferrer">Support on Ko-fi <span aria-hidden="true">↗</span></a><a href="#trackers">Explore the trackers <span aria-hidden="true">↑</span></a></div></div><div class="footer-bottom"><span>© <span id="copyright-year">${new Date().getFullYear()}</span> Clipboard Stats.</span><p>An independent fan project. Not affiliated with any league, team, or player.</p><span>ONE PLAYER. ONE STAT.</span></div></footer>
+  `;
+}
+
+// Render the page before attaching behavior to its elements.
+// Templates contain trusted local content, just like the tracker configuration.
+function renderPage() {
+  document.getElementById("app").innerHTML = `
+    <a class="skip-link" href="#trackers">Skip to trackers</a>
+    ${renderHeader()}
+    <main>
+      ${renderHero(trackers.length)}
+      ${renderTrackers()}
+      ${renderAbout()}
+    </main>
+    ${renderFooter()}
+  `;
+}
+
+renderPage();
 
 const sportArt = {
   baseball: '<svg viewBox="0 0 300 180" fill="none" aria-hidden="true"><path d="m150 20 90 75-90 75-90-75Z" stroke="currentColor" stroke-width="1.5"/><path d="m150 65 39 33-39 34-39-34Z" stroke="currentColor" stroke-width="1.5"/><path d="M150 132v32M111 98 65 95M189 98l46-3" stroke="currentColor" stroke-dasharray="4 5"/><path d="m144 131 6-5 6 5v7h-12Z" fill="currentColor"/><path d="m150 65 39 33-39 34-39-34" stroke="#f04b4c" stroke-width="3"/><rect x="145" y="60" width="10" height="10" transform="rotate(45 150 65)" fill="#f04b4c"/></svg>',
