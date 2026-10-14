@@ -2,7 +2,7 @@
 const trackers = [
   { name: "Corbin’s Triples", player: "Corbin Carroll", team: "Arizona Diamondbacks", league: "MLB", stat: "TRIPLES", label: "THE EXTRA-BASE OBSESSION", description: "Every Corbin Carroll triple, tracked live. He triples. You get a text.", url: "https://corbinstriples.com", domain: "corbinstriples.com", sport: "baseball" },
   { name: "Gibbs Touchdowns", player: "Jahmyr Gibbs", team: "Detroit Lions", league: "NFL", stat: "TOUCHDOWNS", label: "THE CHASE FOR THE RECORD", description: "Jahmyr Gibbs’ chase for the single-season TD record. He scores. You get a text.", url: "https://gibbstouchdowns.com", domain: "gibbstouchdowns.com", sport: "football" },
-  { name: "Wemby Blocks", player: "Victor Wembanyama", team: "San Antonio Spurs", league: "NBA", stat: "BLOCKS", label: "THE SHOT-BLOCKING OBSESSION", description: "Every Victor Wembanyama block, tracked. Follow Wemby’s biggest moments at the rim.", url: "http://wembyblocks.com/", domain: "wembyblocks.com", sport: "basketball" }
+  { name: "Wemby Blocks", player: "Victor Wembanyama", team: "San Antonio Spurs", league: "NBA", stat: "BLOCKS", label: "THE SHOT-BLOCKING OBSESSION", description: "Every Victor Wembanyama block, tracked. Follow Wemby’s biggest moments at the rim.", url: "https://wembyblocks.com/", domain: "wembyblocks.com", sport: "basketball" }
 ];
 
 // Set a real contact address when ready; no placeholder email is displayed.
